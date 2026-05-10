@@ -142,18 +142,18 @@ export default function App() {
 
               {/* Main Road Signal (Controls Horizontal Traffic) */}
               <div className="absolute right-[55%] top-[65%] flex flex-col gap-1 p-1 bg-slate-800 border-2 border-slate-700 rounded-lg z-20 shadow-xl">
-                 <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalMain === 'RED' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,1)]' : 'bg-slate-900/50'}`}></div>
-                 <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalMain === 'YELLOW' ? 'bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,1)]' : 'bg-slate-900/50'}`}></div>
-                 <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalMain === 'GREEN' ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,1)]' : 'bg-slate-900/50'}`}></div>
-                 <span className="absolute -top-6 -left-2 text-xs text-slate-400 font-bold whitespace-nowrap">Main Light</span>
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalMain === 'RED' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,1)]' : 'bg-slate-900/50'}`}></div>
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalMain === 'YELLOW' ? 'bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,1)]' : 'bg-slate-900/50'}`}></div>
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalMain === 'GREEN' ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,1)]' : 'bg-slate-900/50'}`}></div>
+                <span className="absolute -top-6 -left-2 text-xs text-slate-400 font-bold whitespace-nowrap">Main Light</span>
               </div>
 
               {/* Incoming Road Signal (Controls Vertical Traffic) */}
               <div className="absolute bottom-[55%] left-[60%] flex flex-row gap-1 p-1 bg-slate-800 border-2 border-slate-700 rounded-lg z-20 shadow-xl">
-                 <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalIncoming === 'RED' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,1)]' : 'bg-slate-900/50'}`}></div>
-                 <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalIncoming === 'YELLOW' ? 'bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,1)]' : 'bg-slate-900/50'}`}></div>
-                 <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalIncoming === 'GREEN' ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,1)]' : 'bg-slate-900/50'}`}></div>
-                 <span className="absolute -left-20 top-0.5 text-xs text-slate-400 font-bold whitespace-nowrap">Incoming Light</span>
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalIncoming === 'RED' ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,1)]' : 'bg-slate-900/50'}`}></div>
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalIncoming === 'YELLOW' ? 'bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,1)]' : 'bg-slate-900/50'}`}></div>
+                <div className={`w-3 h-3 rounded-full transition-all duration-300 ${trafficData.signalIncoming === 'GREEN' ? 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,1)]' : 'bg-slate-900/50'}`}></div>
+                <span className="absolute -left-20 top-0.5 text-xs text-slate-400 font-bold whitespace-nowrap">Incoming Light</span>
               </div>
 
               {/* Cars */}
@@ -174,7 +174,7 @@ export default function App() {
                       }
                     }
                   }
-                  
+
                   return interleaved.map((type, idx) => (
                     <div
                       key={`main-${idx}`}
@@ -202,7 +202,7 @@ export default function App() {
                       }
                     }
                   }
-                  
+
                   return interleaved.map((type, idx) => (
                     <div
                       key={`inc-${idx}`}
@@ -234,9 +234,9 @@ export default function App() {
                 Live AI Vision Feed
               </h3>
               <div className="rounded-xl overflow-hidden border-2 border-slate-600 shadow-2xl relative bg-black aspect-[2/1]">
-                <img 
+                <img
                   src={`${import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:5000"}/video_feed`}
-                  alt="AI Video Feed" 
+                  alt="AI Video Feed"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.target.style.display = 'none';
