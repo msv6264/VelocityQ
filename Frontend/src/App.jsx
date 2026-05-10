@@ -18,7 +18,8 @@ export default function App() {
   useEffect(() => {
     async function fetchTrafficData() {
       try {
-        const response = await fetch("http://127.0.0.1:5000/traffic");
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+        const response = await fetch(`${API_BASE_URL}/traffic`);
 
         const data = await response.json();
 
@@ -221,7 +222,7 @@ export default function App() {
               </h3>
               <div className="rounded-xl overflow-hidden border-2 border-slate-600 shadow-2xl relative bg-black aspect-[2/1]">
                 <img 
-                  src="http://127.0.0.1:5000/video_feed" 
+                  src={`${import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:5000"}/video_feed`}
                   alt="AI Video Feed" 
                   className="w-full h-full object-cover"
                   onError={(e) => {
