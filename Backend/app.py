@@ -34,19 +34,20 @@ def run_ai_model():
     cap1 = cv2.VideoCapture("../datasets/traffic1.mp4")
     cap2 = cv2.VideoCapture("../datasets/traffic2.mp4")
     
+    frame_count = 0
     while True:
-        # Skip frames to speed up video playback and match real-time
-        for _ in range(2):
-            cap1.read()
-            cap2.read()
-            
+        frame_count += 1
         ret1, frame1 = cap1.read()
         ret2, frame2 = cap2.read()
         
-        # Loop video indefinitely
         if not ret1 or not ret2:
+            # Loop video indefinitely
             cap1.set(cv2.CAP_PROP_POS_FRAMES, 0)
             cap2.set(cv2.CAP_PROP_POS_FRAMES, 0)
+            continue
+            
+        # Process fewer frames (1 out of every 5) to save massive CPU on Render Free Tier
+        if frame_count % 5 != 0:
             continue
             
         # ---------------- CAMERA 1 ----------------
@@ -151,6 +152,10 @@ def run_ai_model():
         if ret_encode:
             current_frame = buffer.tobytes()
             
+        # Prevent CPU overload in the while loop
+        import time
+        time.sleep(0.03)
+            
     cap1.release()
     cap2.release()
 
@@ -181,5 +186,5 @@ def home():
     return "VelocitiQ Backend Running"
 
 if __name__ == "__main__":
-    # use_reloader=False is critical to prevent threading issues
-    app.run(debug=True, use_reloader=False)
+    # Turn off debug mode for deployment stability
+    app.run(debug=False, use_reloader=False)
