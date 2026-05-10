@@ -214,6 +214,19 @@ export default function App() {
               </div>
             </div>
 
+            {/* LEGEND */}
+            <div className="mt-6 bg-slate-800/50 p-4 rounded-2xl border border-slate-700">
+              <p className="text-sm text-slate-400 mb-3 font-semibold">Vehicle Types Detected</p>
+              <div className="flex flex-wrap gap-6">
+                {Object.entries(vehicleColors).map(([type, color]) => (
+                  <div key={type} className="flex items-center gap-2">
+                    <div className={`w-4 h-4 rounded-sm shadow-md ${color}`}></div>
+                    <span className="text-slate-300 capitalize text-sm">{type}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* LIVE AI VISION FEED */}
             <div className="mt-8 bg-slate-800/50 p-6 rounded-3xl border border-slate-700">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -239,18 +252,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* LEGEND */}
-            <div className="mt-6 bg-slate-800/50 p-4 rounded-2xl border border-slate-700">
-              <p className="text-sm text-slate-400 mb-3 font-semibold">Vehicle Types Detected</p>
-              <div className="flex flex-wrap gap-6">
-                {Object.entries(vehicleColors).map(([type, color]) => (
-                  <div key={type} className="flex items-center gap-2">
-                    <div className={`w-4 h-4 rounded-sm shadow-md ${color}`}></div>
-                    <span className="text-slate-300 capitalize text-sm">{type}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* RIGHT PANEL */}
