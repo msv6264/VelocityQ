@@ -176,6 +176,10 @@ def video_feed():
                 
     return Response(generate(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route("/")
+def home():
+    return "VelocitiQ Backend Running"
+
 if __name__ == "__main__":
     # use_reloader=False is critical to prevent threading issues
     app.run(debug=True, use_reloader=False)
