@@ -1,0 +1,17 @@
+# Node / React Frontend
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.env
+Frontend/.env.*
+
+# Python / Flask Backend
+Backend/venv/
+Backend/__pycache__/
+Backend/*.pyc
+Backend/.env
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+!datasets/
